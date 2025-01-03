@@ -1,0 +1,54 @@
+Xft.dpi:	120
+
+Xcursor.theme:	Bibata-Modern-Ice
+Xcursor.size:	36
+
+#define base00 #1e1010
+#define base01 #353b45
+#define base02 #3e4451
+#define base03 #545862
+#define base04 #565c64
+#define base05 #abb2bf
+#define base06 #b6bdca
+#define base07 #c8ccd4
+#define base08 #e06c75
+#define base09 #d19a66
+#define base0A #e5c07b
+#define base0B #98c379
+#define base0C #56b6c2
+#define base0D #61afef
+#define base0E #c678dd
+#define base0F #010181
+
+dwm.normfgcolor:			base05
+dwm.normbgcolor:			base00
+dwm.normbordercolor:		base03
+
+dwm.selfgcolor:				base07
+dwm.selbgcolor:				base0F
+dwm.selbordercolor:			base0D
+
+dwm.floatfgcolor:			base05
+dwm.floatbgcolor:			base00
+dwm.floatbordercolor:		base0E
+
+dwm.scratchfgcolor:			base05
+dwm.scratchbgcolor:			base00
+dwm.scratchbordercolor:		base0B
+
+dwm.stickyfgcolor:			base05
+dwm.stickybgcolor:			base00
+dwm.stickybordercolor:		base0A
+
+dwm.emptyfgcolor:			base03
+dwm.emptybgcolor:			base00
+dwm.emptybordercolor:		base0A
+
+dwm.occfgcolor:				base05
+dwm.occbgcolor:				base00
+dwm.occbordercolor:			base0A
+
+dwm.stbuttonfgcolor:		base07
+dwm.stbuttonbgcolor:		#a00101
+dwm.ltsymbolfgcolor:		base0A
+dwm.ltsymbolbgcolor:		base00
