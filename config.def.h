@@ -1,21 +1,28 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx		= 2;	/* border pixel of windows */
-static const unsigned int snap			= 32;	/* snap pixel */
-static int floatposgrid_x				= 5;	/* float grid columns */
-static int floatposgrid_y				= 5;	/* float grid rows */
-static const int swallowfloating		= 0;	/* 1 means swallow floating windows by default */
-static const int swterminheritfs		= 1;	/* 1 terminal inherits fullscreen on unswallow, 0 otherwise */
-static const char *toggle_float_pos		= "50% 50% 80% 80%"; // default floating position when triggering togglefloating
-static const int showbar				= 1;	/* 0 means no bar */
-static const int topbar					= 1;	/* 0 means bottom bar */
+static const unsigned int borderpx		= 2;
+static const unsigned int snap			= 32;
+static int floatposgrid_x				= 5;
+static int floatposgrid_y				= 5;
+static const int swallowfloating		= 0;
+static const int swterminheritfs		= 1;
+static const char *toggle_float_pos		= "50% 50% 80% 80%"; 
+
+static const int showbar				= 1;
+static const int topbar					= 1;
 static const char buttonbar[]			= "󰤆 ";
-static const unsigned int gappih		= 10;	/* horiz inner gap between windows */
-static const unsigned int gappiv		= 10;	/* vert inner gap between windows */
-static const unsigned int gappoh		= 10;	/* horiz outer gap between windows and screen edge */
-static const unsigned int gappov		= 10;	/* vert outer gap between windows and screen edge */
-static	int smartgaps					= 0;	/* 1 means no outer gap when there is only one window */
+
+#define ICONSIZE (bh - 12)
+#define ICONSPACING 12
+
+
+static const unsigned int gappih		= 10;
+static const unsigned int gappiv		= 10;
+static const unsigned int gappoh		= 10;
+static const unsigned int gappov		= 10;
+static int smartgaps					= 0;
+
 static const char *fonts[]				= { "Noto Sans:style=Condensed Medium:size=13",
 											"JetBrainsMono Nerd Font:size=17",
 											"Noto Sans:size=12",
@@ -56,12 +63,12 @@ static char ltsymbolbgcolor[]			= "#222222";
 
 static char *colors[][3]	= {
 	[SchemeNorm]		= { normfgcolor,		normbgcolor,		normbordercolor },
-	[SchemeSel]			= { selfgcolor,			selbgcolor,			selbordercolor	},
-	[SchemeFloat]		= { floatfgcolor,		floatbgcolor,		floatbordercolor	},
-	[SchemeScratch]		= { scratchfgcolor,		scratchbgcolor,		scratchbordercolor	},
-	[SchemeSticky]		= { stickyfgcolor,		stickybgcolor,		stickybordercolor	},
-	[SchemeEmpty]		= { emptyfgcolor,		emptybgcolor,		emptybordercolor	},
-	[SchemeOcc]			= { occfgcolor,			occbgcolor,			occbordercolor	},
+	[SchemeSel]			= { selfgcolor,			selbgcolor,			selbordercolor },
+	[SchemeFloat]		= { floatfgcolor,		floatbgcolor,		floatbordercolor },
+	[SchemeScratch]		= { scratchfgcolor,		scratchbgcolor,		scratchbordercolor },
+	[SchemeSticky]		= { stickyfgcolor,		stickybgcolor,		stickybordercolor },
+	[SchemeEmpty]		= { emptyfgcolor,		emptybgcolor,		emptybordercolor },
+	[SchemeOcc]			= { occfgcolor,			occbgcolor,			occbordercolor },
 	[SchemeStButton]	= { stbuttonfgcolor,	stbuttonbgcolor,	"#000000" },
 	[SchemeLtSymbol]	= { ltsymbolfgcolor,	ltsymbolbgcolor,	"#000000" },
 };
@@ -76,17 +83,16 @@ static const char *const autostart[] = {
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6" };
 
-static const unsigned int ulinepad		= 5;	/* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
-static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
-static const int ulineall 				= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
+static const unsigned int ulinepad		= 5;	
+static const unsigned int ulinestroke	= 2;
+static const unsigned int ulinevoffset	= 0;
+static const int ulineall 				= 0;
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class	instance	title	tags mask	isfloating	monitor */
 	{ .class = "Lxappearance", .isfloating = 1, .floatpos = "50% 50% -1h -1w" },
 	{ .class = "Archlinux-logout.py", .isfloating = 1 },
 	{ .class = "firefox", .tags = 1 << 1 },
@@ -96,18 +102,18 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact		= 0.50; /* factor of master area size [0.05..0.95] */
-static const int nmaster		= 1;	/* number of clients in master area */
-static const int resizehints 	= 0;	/* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen	= 1; /* 1 will force focus on the fullscreen window */
+static const float mfact		= 0.50; 
+static const int nmaster		= 1;
+static const int resizehints 	= 0;
+static const int lockfullscreen	= 1;
 
-#define FORCE_VSPLIT 1	/* nrowgrid layout: force two clients to always split vertically */
+#define FORCE_VSPLIT 1
 #include "vanitygaps.c"
 
 static const Layout layouts[] = {
 	/* symbol	arrange function */
-	{ "[]=",	tile },	/* first entry is default */
-	{ "><>",	NULL },	/* no layout function means floating behavior */
+	{ "[]=",	tile },
+	{ "><>",	NULL },
 	{ "[M]",	monocle },
 	{ "[@]",	spiral },
 	{ "[\\]",	dwindle },
